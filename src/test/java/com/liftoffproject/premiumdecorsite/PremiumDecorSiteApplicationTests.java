@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.springframework.test.util.AssertionErrors.assertFalse;
 
 @SpringBootTest
 class PremiumDecorSiteApplicationTests {
@@ -13,6 +14,11 @@ class PremiumDecorSiteApplicationTests {
 //    @Test
 //    void contextLoads() {
 //    }
+
+@Test
+public void testAssertFalse() {
+    assertFalse("failure - should be false", false);
+}
 
 }
 

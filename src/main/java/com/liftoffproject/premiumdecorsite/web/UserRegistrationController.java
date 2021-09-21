@@ -24,22 +24,6 @@ public class UserRegistrationController {
     @Autowired
     private UserServiceImpl userService;
 
-//
-//    public UserRegistrationController(UserService userService) {
-//        super();
-//        this.userService = userService;
-//    }
-
-//    @ModelAttribute("user")
-//    public User SignUpUser() {
-//        return new User();
-//    }
-//
-//    @GetMapping
-//    public String showRegistrationForm() {
-//        return "registration";
-//    }
-
     @RequestMapping("")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
@@ -47,11 +31,11 @@ public class UserRegistrationController {
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") User resiterUser) {
+    public String registerUserAccount(@ModelAttribute("user") User registerUser) {
         List<Role> normalRole =  new ArrayList<>();
         normalRole.add(new Role("NORMAL_USER"));
-        resiterUser.setRoles(normalRole);
-        userService.save(resiterUser);
+        registerUser.setRoles(normalRole);
+        userService.save(registerUser);
         return "redirect:/registration?success";
     }
 }
