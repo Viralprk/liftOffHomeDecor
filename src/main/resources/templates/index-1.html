@@ -12,8 +12,13 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#" th:href="@{/}">Welcome !!!  <span sec:authentication="principal.username"> User</span></a>
+                <a class="navbar-brand" href="#" th:href="@{/}">Welcome !!!
+                    <span sec:authentication="name">Username</span>
+
+                <a class="navbar-brand"  th:href="@{/goProduct/}">Products </a>
+  <a href="/product/viewProduct">my test</a>
             </div>
+
             <div id="navbar" class="navbar-header">
                 <ul>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>

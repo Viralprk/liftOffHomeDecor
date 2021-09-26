@@ -1,5 +1,6 @@
 package com.liftoffproject.premiumdecorsite.service;
 
+import com.liftoffproject.premiumdecorsite.config.MyUserDetails;
 import com.liftoffproject.premiumdecorsite.model.Role;
 import com.liftoffproject.premiumdecorsite.model.User;
 import com.liftoffproject.premiumdecorsite.repository.UserRepository;
@@ -39,7 +40,9 @@ public class UserServiceImpl implements UserService{
         if(user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+//        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+//                user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+        return new MyUserDetails(user);
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){

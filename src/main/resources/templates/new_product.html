@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="fragments :: head">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:insert="fragments :: page-header">
+</div>
+
+
+<br>
+<div class="container">
+    <h1>Product Management</h1>
+    <hr>
+    <h2>Save Product</h2>
+
+    <form action="#" th:action="@{/product/saveProduct}" th:object="${product}"
+          method="POST">
+        <input type="text" th:field="*{productName}"
+               placeholder="Product Name" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{description}"
+               placeholder="Description" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{price}"
+               placeholder="Price" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Save Product</button>
+    </form>
+
+    <hr>
+
+    <a th:href = "@{/product/viewProducts}"> Back to Product List</a>
+</div>
+
+<div th:replace="fragments :: page-footer"></div>
+</body>
+</html>

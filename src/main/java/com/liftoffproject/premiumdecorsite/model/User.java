@@ -3,6 +3,7 @@ package com.liftoffproject.premiumdecorsite.model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -95,6 +96,19 @@ public class User {
 
     public void setAddress(List<Address> addresses) {
         this.addresses = addresses;
+    }
+
+
+    public boolean hasRole(String roleName) {
+        Iterator<Role> iterator = this.roles.iterator();
+        while (iterator.hasNext()) {
+            Role role = iterator.next();
+            if (role.getName().equals(roleName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

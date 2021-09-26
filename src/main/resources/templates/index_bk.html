@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="fragments :: head">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:insert="fragments :: page-header">
+</div>
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" th:href="@{/}">Welcome !!!
+                    <span sec:authentication="name">Username</span>
+
+                <a class="navbar-brand"  th:href="@{/goProduct/}">Products </a>
+  <a href="/product/viewProduct">my test</a>
+            </div>
+
+            <div id="navbar" class="navbar-header">
+                <ul>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<br>
+
+<div class="container">
+    Admin module home page
+</div>
+<div th:replace="fragments :: page-footer"></div>
+</body>
+</html>

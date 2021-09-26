@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="fragments :: head">
+  <title>Index</title>
+</head>
+<body>
+
+<div th:insert="fragments :: page-header">
+</div>
+
+<br>
+<div class="container">
+  <h1>Product Management</h1>
+  <hr>
+  <h2>Update  Product</h2>
+
+  <form action="#" th:action="@{/product/saveProduct}" th:object="${product}"
+        method="POST">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}" />
+    <input type="text" th:field="*{productName}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{description}" class="form-control mb-4 col-4">
+    <input type="text" th:field="*{price}" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2"> Update Product</button>
+  </form>
+
+  <hr>
+
+  <a th:href = "@{/product/viewProducts}"> Back to Product List</a>
+</div>
+
+<div th:replace="fragments :: page-footer"></div>
+</body>
+</html>

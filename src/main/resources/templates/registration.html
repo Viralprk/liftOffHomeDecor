@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:replace="fragments :: head">
-    <title>User Registration</title>
+    <title>Registration</title>
 </head>
-<body>
 
-<div th:replace="fragments :: page-header"></div>
 
-<!-- Begin page content -->
-<div class="container">
-    <br>
-    <div>
+<body class="d-flex flex-column h-100">
+
+
+<header th:insert="fragments :: page-header-a">
+</header>
+
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="bs-linebreak"></div>
+        <!--content --->
         <div class="signup-form"  >
             <div class="col-md-8">
                 <div th:if="${param.success}">
@@ -81,8 +86,12 @@
             </div>
         </div>
     </div>
+    <!--end content --->
+    </div>
+    <div class="bs-linebreak"></div>
+</main>
 
-</div>
-<div th:replace="fragments :: page-footer"></div>
+<footer th:replace="fragments :: page-footer-a"></footer>
+
 </body>
 </html>
